@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="com.springcore.Student" name="student1">
+        <property name="id">
+            <value>2563</value>
+        </property>
+        <property name="name">
+            <value>Jahnvi</value>
+        </property>
+        <property name="address">
+            <value>pune</value>
+        </property>
+    </bean>
+
+    <bean class="com.springcore.Student" name="student2">
+        <constructor-arg name="id">
+            <value>2563</value>
+        </constructor-arg>
+        <constructor-arg name="name">
+            <value>Jahnvi</value>
+        </constructor-arg>
+        <constructor-arg name="address">
+            <value>pune</value>
+        </constructor-arg>
+    </bean>
+
+    <bean class="com.springcore.di.B" name="bref">
+        <property name="x">
+            <value>
+                20
+            </value>
+        </property>
+    </bean>
+
+    <bean class="com.springcore.di.A" name="aobj">
+        <property name="y">
+            <value>10</value>
+        </property>
+        <property name="obj" ref="bref">
+        </property>
+    </bean>
+
+    <bean class="com.springcore.autowire.Address" name="address2">
+        <property name="streetname" value="M G road">
+        </property>
+        <property name="city" value="Pune">
+        </property>
+    </bean>
+
+    <bean class="com.springcore.autowire.Address" name="address">
+        <property name="streetname" value="M G road">
+        </property>
+        <property name="city" value="Mumbai">
+        </property>
+    </bean>
+
+    <bean class="com.springcore.autowire.Emp" name="employee" autowire="constructor">
+        <property name="address1" ref="address">
+        </property>
+    </bean>
+
+    <bean class="com.springcore.amb.Addition" name="add1">
+        <constructor-arg name="a" value="10">
+        </constructor-arg>
+        <constructor-arg name="b" value="20">
+        </constructor-arg>
+    </bean>
+    <bean class="com.springcore2.Employee" name="employee1">
+        <property name="name">
+            <value>Jahnvi</value>
+        </property>
+        <property name="phones">
+            <list>
+                <value>1012</value>
+                <value>1013</value>
+            </list>
+        </property>
+        <property name="addresses">
+            <set>
+                <value>10</value>
+                <value>10</value>
+            </set>
+        </property>
+        <property name="courses">
+            <map>
+                <entry key="java" value="24HRcourses">
+                </entry>
+                <entry key="c++" value="48HR courses"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean class="com.springcore.Student" name="student3" p:id="101" p:name="Jahnvi Mandle" p:address="pune"></bean>
+</beans>
